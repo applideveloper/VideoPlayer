@@ -8,20 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		A7A9A20F1DF281AA00FD02DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A9A20E1DF281AA00FD02DD /* AppDelegate.swift */; };
-		A7A9A2111DF281AA00FD02DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A9A2101DF281AA00FD02DD /* ViewController.swift */; };
-		A7A9A2141DF281AA00FD02DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A9A2121DF281AA00FD02DD /* Main.storyboard */; };
 		A7A9A2161DF281AA00FD02DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A9A2151DF281AA00FD02DD /* Assets.xcassets */; };
 		A7A9A2191DF281AA00FD02DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A9A2171DF281AA00FD02DD /* LaunchScreen.storyboard */; };
+		A7A9A22B1DF2978200FD02DD /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A9A22A1DF2978200FD02DD /* VideoPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A7A9A20B1DF281AA00FD02DD /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A9A20E1DF281AA00FD02DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7A9A2101DF281AA00FD02DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A7A9A2131DF281AA00FD02DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7A9A2151DF281AA00FD02DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7A9A2181DF281AA00FD02DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7A9A21A1DF281AA00FD02DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7A9A22A1DF2978200FD02DD /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +53,90 @@
 			isa = PBXGroup;
 			children = (
 				A7A9A20E1DF281AA00FD02DD /* AppDelegate.swift */,
-				A7A9A2101DF281AA00FD02DD /* ViewController.swift */,
-				A7A9A2121DF281AA00FD02DD /* Main.storyboard */,
+				A7A9A2201DF281D400FD02DD /* Model */,
+				A7A9A2221DF281E100FD02DD /* ViewController */,
+				A7A9A2211DF281D900FD02DD /* View */,
 				A7A9A2151DF281AA00FD02DD /* Assets.xcassets */,
 				A7A9A2171DF281AA00FD02DD /* LaunchScreen.storyboard */,
 				A7A9A21A1DF281AA00FD02DD /* Info.plist */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		A7A9A2201DF281D400FD02DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7A9A2231DF2821E00FD02DD /* Entity */,
+				A7A9A2241DF2822F00FD02DD /* Fetcher */,
+				A7A9A2251DF2824000FD02DD /* Manager */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A7A9A2211DF281D900FD02DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7A9A2271DF296EE00FD02DD /* VideoPlayer */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A7A9A2221DF281E100FD02DD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A7A9A2281DF296F500FD02DD /* VideoPlayer */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A7A9A2231DF2821E00FD02DD /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				A7A9A2261DF2825300FD02DD /* CoreData */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		A7A9A2241DF2822F00FD02DD /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fetcher;
+			sourceTree = "<group>";
+		};
+		A7A9A2251DF2824000FD02DD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		A7A9A2261DF2825300FD02DD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		A7A9A2271DF296EE00FD02DD /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		A7A9A2281DF296F500FD02DD /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				A7A9A2291DF2971800FD02DD /* VideoPlayer */,
+			);
+			name = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		A7A9A2291DF2971800FD02DD /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				A7A9A22A1DF2978200FD02DD /* VideoPlayerViewController.swift */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -126,7 +203,6 @@
 			files = (
 				A7A9A2191DF281AA00FD02DD /* LaunchScreen.storyboard in Resources */,
 				A7A9A2161DF281AA00FD02DD /* Assets.xcassets in Resources */,
-				A7A9A2141DF281AA00FD02DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7A9A2111DF281AA00FD02DD /* ViewController.swift in Sources */,
+				A7A9A22B1DF2978200FD02DD /* VideoPlayerViewController.swift in Sources */,
 				A7A9A20F1DF281AA00FD02DD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,14 +221,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A7A9A2121DF281AA00FD02DD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A7A9A2131DF281AA00FD02DD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A7A9A2171DF281AA00FD02DD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -266,7 +334,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.wishmatch.VideoPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -279,7 +347,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.wishmatch.VideoPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
