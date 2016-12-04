@@ -6,6 +6,11 @@ target 'VideoPlayer' do
   use_frameworks!
 
   # Pods for VideoPlayer
+  pod 'Alamofire', '3.5'
+  pod 'ObjectMapper', '1.5.0'
+  pod 'AlamofireObjectMapper', '3.0.2'
+  pod 'SwiftTask', :git => 'https://github.com/ReactKit/SwiftTask', :branch => 'swift/2.2'
+  pod 'Kingfisher', '2.6.1'
 
   target 'VideoPlayerTests' do
     inherit! :search_paths

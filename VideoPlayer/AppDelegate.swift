@@ -8,6 +8,24 @@
 
 import UIKit
 
+func print(items: Any..., separator: String = " ", terminator: String = "\n") {
+    #if DEBUG
+        Swift.print(items[0], separator:separator, terminator: terminator)
+    #endif
+}
+
+func NSLog(message:String){
+    #if DEBUG
+        Foundation.NSLog(message)
+    #endif
+}
+
+func NSLog(format:String, _ args:CVarArgType...){
+    #if DEBUG
+        Foundation.NSLog(String(format: format, arguments: args))
+    #endif
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder {
 
@@ -21,10 +39,17 @@ extension AppDelegate: UIApplicationDelegate {
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        let viewController = VideoPlayerViewController()
-        viewController.view.backgroundColor = UIColor.blueColor()
+        let videoPlayerListViewController = VideoPlayerListViewController()
         
-        self.window?.rootViewController = UINavigationController(rootViewController: viewController)
+        let navigationController = UINavigationController(rootViewController: videoPlayerListViewController)
+        
+        // Set isShouldAutorotate flag
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setBool(false, forKey: isShouldAutorotate)
+        
+        navigationController.shouldAutorotate()
+        
+        self.window?.rootViewController = navigationController
         
         // Shows the window and makes it the key window.
         self.window?.makeKeyAndVisible()
