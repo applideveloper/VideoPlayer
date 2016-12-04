@@ -13,12 +13,13 @@ extension UINavigationController {
     
 
     public override func shouldAutorotate() -> Bool {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        
-        if let isShouldAutorotate = userDefaults.objectForKey(isShouldAutorotate) as? Bool {
-            return isShouldAutorotate
-        } else {
-            return false
-        }
+//        let userDefaults = NSUserDefaults.standardUserDefaults()
+//        
+//        if let isShouldAutorotate = userDefaults.objectForKey(isShouldAutorotate) as? Bool {
+//            return isShouldAutorotate
+//        } else {
+//            return false
+//        }
+        return true
     }
 }

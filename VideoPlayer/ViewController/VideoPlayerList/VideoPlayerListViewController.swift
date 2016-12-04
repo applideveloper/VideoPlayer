@@ -19,9 +19,9 @@ class VideoPlayerListViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "受験サプリ"
-
         
-
+        // 端末の向きがかわったらNotificationを呼ばす設定.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.onUIDeviceOrientationDidChangeNotification), name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -33,11 +33,17 @@ class VideoPlayerListViewController: UIViewController {
         // 向きの判定
         if let isLandscape = userDefaults.objectForKey(isLandscape) as? Bool
             where isLandscape == true {
+            // ステータスバーの高さを取得
+            let statusBarHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
+            
+            // ナビゲーションバーの高さを取得
+            let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
+            
             //横向きの判定.
             self.tableView = UITableView(
                 frame: CGRect(
                     x: 0,
-                    y: 0,
+                    y: statusBarHeight + navigationBarHeight,
                     width: UIScreen.mainScreen().bounds.size.width,
                     height: UIScreen.mainScreen().bounds.size.height
                 )
@@ -68,10 +74,12 @@ class VideoPlayerListViewController: UIViewController {
         
         self.view.addSubview(tableView)
         
-        self.tableView?.registerNib(
+        tableView.registerNib(
             UINib(nibName: VideoPlayListTableViewCell.className, bundle: nil),
             forCellReuseIdentifier: VideoPlayListTableViewCell.className
         )
+        
+        tableView.contentOffset = CGPointMake(0, tableView.contentInset.top)
         
         VideoPlayListFetcher()
         .getResponse()
@@ -84,7 +92,20 @@ class VideoPlayerListViewController: UIViewController {
             print("error?.description = \(error?.description)" +
                 "isCancelled = \(isCancelled)")
         }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         
+        // Set isShouldAutorotate flag
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setBool(true, forKey: isShouldAutorotate)
+        
+        guard let navigationController = self.navigationController else {
+            return
+        }
+        
+        navigationController.shouldAutorotate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,11 +120,17 @@ class VideoPlayerListViewController: UIViewController {
         // 向きの判定
         if let isLandscape = userDefaults.objectForKey(isLandscape) as? Bool
             where isLandscape == true {
+            // ステータスバーの高さを取得
+            let statusBarHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
+            
+            // ナビゲーションバーの高さを取得
+            let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
+            
             //横向きの判定.
             self.tableView = UITableView(
                 frame: CGRect(
                     x: 0,
-                    y: 0,
+                    y: statusBarHeight + navigationBarHeight,
                     width: UIScreen.mainScreen().bounds.size.width,
                     height: UIScreen.mainScreen().bounds.size.height
                 )
@@ -134,10 +161,12 @@ class VideoPlayerListViewController: UIViewController {
         
         self.view.addSubview(tableView)
         
-        self.tableView?.registerNib(
+        tableView.registerNib(
             UINib(nibName: VideoPlayListTableViewCell.className, bundle: nil),
             forCellReuseIdentifier: VideoPlayListTableViewCell.className
         )
+        
+        tableView.contentOffset = CGPointMake(0, tableView.contentInset.top)
         
         VideoPlayListFetcher()
             .getResponse()
@@ -150,6 +179,25 @@ class VideoPlayerListViewController: UIViewController {
                 print("error?.description = \(error?.description)" +
                     "isCancelled = \(isCancelled)")
         }
+    }
+    
+    // 端末の向きがかわったら呼び出される.
+    func onUIDeviceOrientationDidChangeNotification(notification: NSNotification) {
+        let deviceOrientation = UIDevice.currentDevice().orientation
+        
+        // Set isLandscape flag
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        // 向きの判定
+        if UIDeviceOrientationIsLandscape(deviceOrientation) {
+            //横向きの判定.
+            userDefaults.setBool(true, forKey: isLandscape)
+        } else {
+            //縦向きの判定.
+            userDefaults.setBool(false, forKey: isLandscape)
+        }
+        
+        self.tableView?.reloadData()
     }
 }
 
@@ -199,6 +247,18 @@ extension VideoPlayerListViewController: UITableViewDataSource {
         let video = videoArray[indexPath.row]
         
         videoPlayListTableViewCell.thumbnailUrlString = video.thumbnail_url
+        
+        // Set isLandscape flag
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        // 向きの判定
+        if let isLandscape = userDefaults.objectForKey(isLandscape) as? Bool
+            where isLandscape == true {
+            videoPlayListTableViewCell.thumbnailImageViewHeight.constant = CGFloat(250)
+        } else {
+            videoPlayListTableViewCell.thumbnailImageViewHeight.constant = CGFloat(168)
+        }
+        
         videoPlayListTableViewCell.titleLabel.text = video.title
         videoPlayListTableViewCell.presenterNameLabel.text = video.presenter_name
         videoPlayListTableViewCell.descriptionLabel.text = video.description

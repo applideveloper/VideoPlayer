@@ -47,7 +47,7 @@ extension AppDelegate: UIApplicationDelegate {
         userDefaults.setBool(false, forKey: isShouldAutorotate)
 
         //縦向きの判定.
-        userDefaults.setBool(true, forKey: isLandscape)
+        userDefaults.setBool(false, forKey: isLandscape)
         
         navigationController.shouldAutorotate()
         

@@ -14,7 +14,6 @@ class VideoPlayListTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var thumbnailImageViewHeight: NSLayoutConstraint!
     
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var presenterNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

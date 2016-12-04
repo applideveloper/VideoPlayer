@@ -97,7 +97,7 @@ class VideoPlayerViewController: AVPlayerViewController {
             userDefaults.setBool(true, forKey: isLandscape)
         } else {
             //縦向きの判定.
-            userDefaults.setBool(true, forKey: isLandscape)
+            userDefaults.setBool(false, forKey: isLandscape)
         }
     }
 }
