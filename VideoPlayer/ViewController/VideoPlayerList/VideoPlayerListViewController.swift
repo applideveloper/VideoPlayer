@@ -20,14 +20,38 @@ class VideoPlayerListViewController: UIViewController {
         
         self.navigationItem.title = "受験サプリ"
 
-        self.tableView = UITableView(
-            frame: CGRect(
-                x: 0,
-                y: 0,
-                width: self.view.bounds.width,
-                height: self.view.bounds.height
+        
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Set isLandscape flag
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        // 向きの判定
+        if let isLandscape = userDefaults.objectForKey(isLandscape) as? Bool
+            where isLandscape == true {
+            //横向きの判定.
+            self.tableView = UITableView(
+                frame: CGRect(
+                    x: 0,
+                    y: 0,
+                    width: UIScreen.mainScreen().bounds.size.width,
+                    height: UIScreen.mainScreen().bounds.size.height
+                )
             )
-        )
+        } else {
+            self.tableView = UITableView(
+                frame: CGRect(
+                    x: 0,
+                    y: 0,
+                    width: UIScreen.mainScreen().bounds.size.width,
+                    height: UIScreen.mainScreen().bounds.size.height
+                )
+            )
+        }
         
         guard let tableView = self.tableView else {
             return
@@ -48,10 +72,6 @@ class VideoPlayerListViewController: UIViewController {
             UINib(nibName: VideoPlayListTableViewCell.className, bundle: nil),
             forCellReuseIdentifier: VideoPlayListTableViewCell.className
         )
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         
         VideoPlayListFetcher()
         .getResponse()
@@ -71,6 +91,66 @@ class VideoPlayerListViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        // Set isLandscape flag
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        // 向きの判定
+        if let isLandscape = userDefaults.objectForKey(isLandscape) as? Bool
+            where isLandscape == true {
+            //横向きの判定.
+            self.tableView = UITableView(
+                frame: CGRect(
+                    x: 0,
+                    y: 0,
+                    width: UIScreen.mainScreen().bounds.size.width,
+                    height: UIScreen.mainScreen().bounds.size.height
+                )
+            )
+        } else {
+            self.tableView = UITableView(
+                frame: CGRect(
+                    x: 0,
+                    y: 0,
+                    width: UIScreen.mainScreen().bounds.size.width,
+                    height: UIScreen.mainScreen().bounds.size.height
+                )
+            )
+        }
+        
+        guard let tableView = self.tableView else {
+            return
+        }
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.estimatedRowHeight = 250
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        tableView.separatorColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor.lightGrayColor()
+        
+        self.view.addSubview(tableView)
+        
+        self.tableView?.registerNib(
+            UINib(nibName: VideoPlayListTableViewCell.className, bundle: nil),
+            forCellReuseIdentifier: VideoPlayListTableViewCell.className
+        )
+        
+        VideoPlayListFetcher()
+            .getResponse()
+            .success { (videoArray: [Video]?) -> Void in
+                self.videoArray = videoArray
+                self.tableView?.reloadData()
+            }
+            .failure { (error, isCancelled) in
+                // FIXME: error report
+                print("error?.description = \(error?.description)" +
+                    "isCancelled = \(isCancelled)")
+        }
+    }
 }
 
 extension VideoPlayerListViewController: UITableViewDelegate {
@@ -81,6 +161,23 @@ extension VideoPlayerListViewController: UITableViewDelegate {
         }
         
         let video = videoArray[indexPath.row]
+        
+        let videoPlayerDetailViewController = VideoPlayerDetailViewController()
+        videoPlayerDetailViewController.video = video
+        
+        let videoPlayerViewController = VideoPlayerViewController()
+        videoPlayerViewController.video = video
+        self.presentViewController(videoPlayerViewController, animated: true) { 
+            
+        }
+        
+//        guard let navigationController = self.navigationController,
+//            let topViewController = navigationController.topViewController
+//            where topViewController.className != VideoPlayerViewController.className else {
+//            return
+//        }
+//        videoPlayerDetailViewController.video = video
+//        self.navigationController?.pushViewController(videoPlayerDetailViewController, animated: true)
     }
 }
 

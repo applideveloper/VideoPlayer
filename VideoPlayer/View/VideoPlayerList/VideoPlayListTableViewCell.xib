@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JkC-RN-Tdb">
@@ -80,7 +80,7 @@
                                     <constraint firstAttribute="bottom" secondItem="JhV-r4-ChE" secondAttribute="bottom" id="zD4-TJ-AhJ"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playButton" translatesAutoresizingMaskIntoConstraints="NO" id="SSB-LX-WVn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play_button" translatesAutoresizingMaskIntoConstraints="NO" id="SSB-LX-WVn">
                                 <rect key="frame" x="258" y="127" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="34" id="3UV-dM-EJs"/>
@@ -143,6 +143,6 @@
     </objects>
     <resources>
         <image name="class_thumbnail" width="480" height="270"/>
-        <image name="playButton" width="34" height="34"/>
+        <image name="play_button" width="40" height="40"/>
     </resources>
 </document>

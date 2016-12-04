@@ -36,7 +36,6 @@ extension AppDelegate: UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let videoPlayerListViewController = VideoPlayerListViewController()
@@ -46,6 +45,9 @@ extension AppDelegate: UIApplicationDelegate {
         // Set isShouldAutorotate flag
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setBool(false, forKey: isShouldAutorotate)
+
+        //縦向きの判定.
+        userDefaults.setBool(true, forKey: isLandscape)
         
         navigationController.shouldAutorotate()
         

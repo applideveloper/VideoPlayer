@@ -16,6 +16,9 @@
 		A700DF7E1DF3F69900EC613A /* ViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700DF7D1DF3F69900EC613A /* ViewUtility.swift */; };
 		A782F5861DF400900017717B /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A782F5851DF400900017717B /* UINavigationController.swift */; };
 		A782F5881DF4041F0017717B /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A782F5871DF4041F0017717B /* Constraints.swift */; };
+		A782F58E1DF40D640017717B /* VideoPlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A782F58D1DF40D640017717B /* VideoPlayerDetailViewController.swift */; };
+		A782F5941DF40F830017717B /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A782F5931DF40F830017717B /* VideoPlayerViewController.swift */; };
+		A782F5961DF4309B0017717B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A782F5951DF4309B0017717B /* Utility.swift */; };
 		A784F1021DF2BA9800EA33D0 /* VideoPlayListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784F1011DF2BA9800EA33D0 /* VideoPlayListFetcher.swift */; };
 		A784F1061DF2BC0900EA33D0 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = A784F1051DF2BC0900EA33D0 /* Video.swift */; };
 		A7A9A20F1DF281AA00FD02DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A9A20E1DF281AA00FD02DD /* AppDelegate.swift */; };
@@ -57,13 +60,16 @@
 		A700DF7D1DF3F69900EC613A /* ViewUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtility.swift; sourceTree = "<group>"; };
 		A782F5851DF400900017717B /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		A782F5871DF4041F0017717B /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		A782F58D1DF40D640017717B /* VideoPlayerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerDetailViewController.swift; sourceTree = "<group>"; };
+		A782F5931DF40F830017717B /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		A782F5951DF4309B0017717B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		A784F1011DF2BA9800EA33D0 /* VideoPlayListFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayListFetcher.swift; sourceTree = "<group>"; };
 		A784F1051DF2BC0900EA33D0 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		A7A9A20B1DF281AA00FD02DD /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A9A20E1DF281AA00FD02DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7A9A2151DF281AA00FD02DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7A9A2151DF281AA00FD02DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		A7A9A2181DF281AA00FD02DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A7A9A21A1DF281AA00FD02DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7A9A21A1DF281AA00FD02DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		A7A9A22A1DF2978200FD02DD /* VideoPlayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerListViewController.swift; sourceTree = "<group>"; };
 		A7A9A2331DF2A80E00FD02DD /* VideoPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A9A2351DF2A80E00FD02DD /* VideoPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerUITests.swift; sourceTree = "<group>"; };
@@ -143,6 +149,40 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		A782F58B1DF40CDE0017717B /* VideoPlayerDeital */ = {
+			isa = PBXGroup;
+			children = (
+				A782F58D1DF40D640017717B /* VideoPlayerDetailViewController.swift */,
+				A782F5931DF40F830017717B /* VideoPlayerViewController.swift */,
+			);
+			name = VideoPlayerDeital;
+			path = VideoPlayerDetail;
+			sourceTree = "<group>";
+		};
+		A782F58C1DF40D0A0017717B /* VideoPlayerDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VideoPlayerDetail;
+			sourceTree = "<group>";
+		};
+		A782F5971DF439C70017717B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A7A9A21A1DF281AA00FD02DD /* Info.plist */,
+				A7A9A2151DF281AA00FD02DD /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		A782F5981DF43A010017717B /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A7A9A2171DF281AA00FD02DD /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 		A784F1031DF2BAC300EA33D0 /* ObjectMapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,13 +224,11 @@
 			isa = PBXGroup;
 			children = (
 				A7A9A20E1DF281AA00FD02DD /* AppDelegate.swift */,
+				A782F5971DF439C70017717B /* Resource */,
 				A7A9A22C1DF2A34600FD02DD /* Common */,
 				A7A9A2201DF281D400FD02DD /* Model */,
 				A7A9A2221DF281E100FD02DD /* ViewController */,
 				A7A9A2211DF281D900FD02DD /* View */,
-				A7A9A2151DF281AA00FD02DD /* Assets.xcassets */,
-				A7A9A2171DF281AA00FD02DD /* LaunchScreen.storyboard */,
-				A7A9A21A1DF281AA00FD02DD /* Info.plist */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -208,8 +246,10 @@
 		A7A9A2211DF281D900FD02DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A782F5981DF43A010017717B /* LaunchScreen */,
 				A700DF7C1DF3F64E00EC613A /* Custom */,
 				A7A9A2271DF296EE00FD02DD /* VideoPlayerList */,
+				A782F58C1DF40D0A0017717B /* VideoPlayerDetail */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				A7A9A2291DF2971800FD02DD /* VideoPlayerList */,
+				A782F58B1DF40CDE0017717B /* VideoPlayerDeital */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -276,6 +317,7 @@
 			children = (
 				A72D92541DF3C17200E32C6B /* Extension */,
 				A782F5871DF4041F0017717B /* Constraints.swift */,
+				A782F5951DF4309B0017717B /* Utility.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -566,12 +608,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A782F58E1DF40D640017717B /* VideoPlayerDetailViewController.swift in Sources */,
 				A7A9A22B1DF2978200FD02DD /* VideoPlayerListViewController.swift in Sources */,
 				A782F5861DF400900017717B /* UINavigationController.swift in Sources */,
 				A700DF7E1DF3F69900EC613A /* ViewUtility.swift in Sources */,
 				A7A9A20F1DF281AA00FD02DD /* AppDelegate.swift in Sources */,
 				A782F5881DF4041F0017717B /* Constraints.swift in Sources */,
 				A784F1021DF2BA9800EA33D0 /* VideoPlayListFetcher.swift in Sources */,
+				A782F5941DF40F830017717B /* VideoPlayerViewController.swift in Sources */,
+				A782F5961DF4309B0017717B /* Utility.swift in Sources */,
 				A700DF7B1DF3F57400EC613A /* NSObject.swift in Sources */,
 				A784F1061DF2BC0900EA33D0 /* Video.swift in Sources */,
 				A700DF761DF3E5D000EC613A /* VideoPlayListTableViewCell.swift in Sources */,
@@ -616,6 +661,7 @@
 				A7A9A2181DF281AA00FD02DD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

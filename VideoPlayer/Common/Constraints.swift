@@ -9,3 +9,5 @@
 import Foundation
 
 let isShouldAutorotate = "isShouldAutorotate"
+// 横向きかどうか
+let isLandscape = "isLandscape"

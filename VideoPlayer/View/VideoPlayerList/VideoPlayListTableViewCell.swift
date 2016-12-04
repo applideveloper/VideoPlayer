@@ -43,6 +43,7 @@ class VideoPlayListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.contentView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
